@@ -25,7 +25,7 @@ setTimeout(() => {
     const el = document.querySelector('form-data-json[type=form');
     console.log(el);
     
-    if (el) el.addEventListener('changedata', ({ detail }: CustomEvent) => console.log(detail.value), { passive: true });  
+    if (el) el.addEventListener('changedata', (({ detail }: CustomEvent<{ value: any }>) => console.log(detail.value)) as EventListener, { passive: true });  
 }, 400);
 
 export default app;
